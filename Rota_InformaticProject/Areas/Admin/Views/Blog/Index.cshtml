@@ -1,0 +1,133 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div>
+    <div class="card">
+        <div class="card-header text-white bg-danger bg-gradient">
+            <span class="fs-4">Blog Bölümü Listesi</span>
+
+        </div>
+        <div class="card-body">
+            <table id="BlogTable" class="table table-bordered table-striped" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Görsel</th>
+                        <th>Başlık</th>
+                        <th>Açıklama</th>
+                        <th>Alt Açıklama</th>
+                        <th>Tagler</th>
+                        <th>Oluşturulma Tarihi</th>
+                        <th>İşlemler</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="descriptionModal" tabindex="-1" aria-labelledby="descriptionModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="descriptionModalLabel">Açıklama</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p id="descriptionContent"></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    $(document).ready(function () {
+
+        var dataTable = $('#BlogTable').DataTable({
+            ajax: {
+                url: '/Admin/Blog/GetAll',
+                dataSrc: ''
+            },
+            columns: [
+                { data: 'id' },
+                {
+                    data: 'image',
+                    render: function (data, type, row) {
+                        return `<img src="${data}" class="img-thumbnail" width="50" height="50" alt="Görsel">`;
+                    }
+                },
+           
+
+                { data: 'title' },
+                {
+                    data: 'description',
+                    render: function (data, type, row) {
+                        return `<a href="#" class="description-link" data-description="${data}">Açıklama</a>`;
+                    }
+                },
+                {
+                    data: 'description2',
+                    render: function (data, type, row) {
+                        return `<a href="#" class="description2-link" data-description="${data}">Alt Açıklama</a>`;
+                    }
+                },
+                { data:'tags',},
+
+                { data: 'createdDate' },
+                {
+                    data: null,
+                    render: function (data, type, row) {
+                        return `<a href="#" onclick="deleteBlog('${row.id}')" class="btn btn-sm btn-danger">Sil</a>`;
+                    }
+                }
+            ]
+        });
+        $('#BlogTable').on('click', '.description-link, .description2-link', function () {
+            var description = $(this).data('description');
+            $('#descriptionContent').text(description);
+            $('#descriptionModal').modal('show');
+        });
+    });
+
+    function deleteBlog(id) {
+        Swal.fire({
+            title: 'Silmek istediğinize emin misiniz?',
+            text: "Blog Silinecek",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Sil!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    type: 'POST',
+                    url: '/Admin/Blog/BlogDelete',
+                    data: { id: id },
+                    success: function () {
+                        Swal.fire(
+                            'Başarılı!',
+                            'Kullanıcı Silindi',
+                            'success'
+                        );
+                        $('#BlogTable').DataTable().ajax.reload();
+                    },
+                    error: function () {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Müşteri Silme İşlemi Başarısız!',
+                            text: 'Bir şeyler yanlış gitti!'
+                        });
+                    }
+                });
+            }
+        });
+    }
+
+
+
+</script>

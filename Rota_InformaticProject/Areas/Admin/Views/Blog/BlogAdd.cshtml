@@ -1,0 +1,65 @@
+﻿@model Entities.Blog
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "BlogAdd";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+
+                <h4 class="card-title">Blog Post Ekle</h4>
+                <p class="card-title-desc">
+                    Yeni bir blog yazısı  eklemek için aşağıdaki formu kullanabilirsiniz.
+                </p>
+
+                <form method="post" enctype="multipart/form-data" action="/Admin/Blog/BlogAdd">
+                    <div class="mb-3 row">
+                        <label for="title" class="col-md-2 col-form-label">Başlık</label>
+                        <div class="col-md-10">
+                            <input class="form-control" type="text" id="title" asp-for="Title" required>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <label for="description" class="col-md-2 col-form-label">Açıklama</label>
+                        <div class="col-md-10">
+                            <textarea class="form-control" id="description" rows="6" asp-for="Description" required></textarea>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <label for="description2" class="col-md-2 col-form-label">Alt Açıklama</label>
+                        <div class="col-md-10">
+                            <textarea class="form-control" id="description2" rows="6" asp-for="Description2"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <label for="imageFile" class="col-md-2 col-form-label">Görsel</label>
+                        <div class="col-md-10">
+                            <input class="form-control" type="file" id="imageFile" asp-for="Image" name="image">
+                            <small class="text-muted">Dosya yüklemek için bir dosya seçin.</small>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="title" class="col-md-2 col-form-label">Tagler</label>
+                        <div class="col-md-10">
+                            <input class="form-control" type="text" id="title" asp-for="Tags" required>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <div class="col-md-10 offset-md-2">
+                            <button type="submit" class="btn btn-primary">Blog Kaydet</button>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
