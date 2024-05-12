@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entities
 {
-    public class Reference
+    public class Reference:BaseModel
     {
         public required string Image {  get; set; }
     }
