@@ -8,5 +8,9 @@ namespace Rota_InformaticProject.Controllers
         {
             return View();
         }
+        public IActionResult SolutionDetails()
+        {
+            return View();
+        }
     }
 }
