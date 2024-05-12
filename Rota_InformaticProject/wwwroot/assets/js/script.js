@@ -1,13 +1,4 @@
 /*-----------------------------------------------------------------
-
-Template Name: Gratech - IT Service HTML Template
-Author:  Gramentheme
-Author URI: https://themeforest.net/user/gramentheme/portfolio
-Developer: Kawser Ahmed Roni
-Version: 1.0.0
-Description: Gratech - IT Service HTML5 Template
-
--------------------------------------------------------------------
 CSS TABLE OF CONTENTS
 -------------------------------------------------------------------
 
@@ -44,39 +35,6 @@ CSS TABLE OF CONTENTS
 	});
 	// Preloader area end here ***
 
-	// Mouse cursor area start here ***
-	function mousecursor() {
-		if ($("body")) {
-			const e = document.querySelector(".cursor-inner"),
-				t = document.querySelector(".cursor-outer");
-			let n,
-				i = 0,
-				o = !1;
-			(window.onmousemove = function (s) {
-				o ||
-					(t.style.transform =
-						"translate(" + s.clientX + "px, " + s.clientY + "px)"),
-					(e.style.transform =
-						"translate(" + s.clientX + "px, " + s.clientY + "px)"),
-					(n = s.clientY),
-					(i = s.clientX);
-			}),
-				$("body").on("mouseenter", "a, .cursor-pointer", function () {
-					e.classList.add("cursor-hover"), t.classList.add("cursor-hover");
-				}),
-				$("body").on("mouseleave", "a, .cursor-pointer", function () {
-					($(this).is("a") && $(this).closest(".cursor-pointer").length) ||
-						(e.classList.remove("cursor-hover"),
-						t.classList.remove("cursor-hover"));
-				}),
-				(e.style.visibility = "visible"),
-				(t.style.visibility = "visible");
-		}
-	}
-	$(function () {
-		mousecursor();
-	});
-	// Mouse cursor area end here ***
 
 	// Header area start here ***
 	// Mobile menu
