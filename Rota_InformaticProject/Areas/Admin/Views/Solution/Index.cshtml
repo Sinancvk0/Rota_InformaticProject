@@ -7,15 +7,15 @@
 <div>
     <div class="card">
         <div class="card-header text-white bg-danger bg-gradient">
-            <span class="fs-4">Hizmetler</span>
-            <a href="#" id="btnEkle" class="btn btn-warning ms-2">Yeni Hizmet Ekle</a>
+            <span class="fs-4">Çözümler</span>
+            <a href="#" id="btnEkle" class="btn btn-warning ms-2">Yeni Çözüm Ekle</a>
         </div>
         <div class="card-body">
             <table id="serviceTable" class="table table-bordered table-striped" style="width:100%">
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Hizmet Adı</th>
+                        <th>Çözüm Adı</th>
                         <th>Açıklama</th>
                         <th>Görsel</th>
                         <th>İşlemler</th>
@@ -61,8 +61,6 @@
     </div>
 </div>
 
-
-
 <script>
     $(document).ready(function () {
 
@@ -104,7 +102,7 @@
 
                 $.ajax({
                     type: 'POST',
-                    url: '/Admin/Service/ServiceAdd',
+                    url: '/Admin/Solution/SolutionAdd',
                     data: fileData,
                     contentType: false,
                     processData: false,
@@ -130,7 +128,7 @@
 
         var dataTable = $('#serviceTable').DataTable({
             ajax: {
-                url: '/Admin/Service/GetAll',
+                url: '/Admin/Solution/GetAll',
                 dataSrc: ''
             },
             columns: [
@@ -138,7 +136,7 @@
                 { data: 'title' },
                 { data: 'description' },
                 {
-                    
+
                     data: 'image',
                     "render": function (data) {
                         return `<img src="${data}" class="img-thumbnail" width="50" height="100" alt="Görsel">`;
@@ -149,7 +147,7 @@
                     data: null,
                     render: function (data, type, row) {
                         return `<a href="#" onclick="deleteSector('${row.id}')" class="btn btn-sm btn-danger">Sil</a>
-                        <a href="#" onclick="editService('${row.id}')" class="btn btn-sm btn-primary">Düzenle</a>`;
+                            <a href="#" onclick="editService('${row.id}')" class="btn btn-sm btn-primary">Düzenle</a>`;
                     }
 
                 }
@@ -170,7 +168,7 @@
             if (result.isConfirmed) {
                 $.ajax({
                     type: 'POST',
-                    url: '/Admin/Service/ServiceDelete',
+                    url: '/Admin/Solution/SolutionDelete',
                     data: { id: id },
                     success: function () {
                         Swal.fire(
@@ -192,12 +190,12 @@
         });
     }
     function editService(id) {
-        $("#modalTitle").text("Hizmet Düzenle");
+        $("#modalTitle").text("Çözüm Düzenle");
         $("#btnSave").text("Güncelle").removeClass('btn-primary').addClass('btn-success');
 
         $.ajax({
             type: 'GET',
-            url: '/Admin/Service/GetServiceById',
+            url: '/Admin/Solution/GetServiceById',
             data: { id: id },
             success: function (res) {
                 $("#txtName").val(res.title);
@@ -223,7 +221,7 @@
                     formData.append("Image", file);
 
                     $.ajax({
-                        url: "/Admin/Service/UpdateService",
+                        url: "/Admin/Solution/UpdateSolution",
                         type: "POST",
                         data: formData,
                         contentType: false,
@@ -258,4 +256,3 @@
         });
     }
 </script>
-
