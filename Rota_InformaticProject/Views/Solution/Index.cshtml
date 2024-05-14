@@ -1,4 +1,4 @@
-﻿
+﻿@model List<Entities.Solution>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -17,105 +17,50 @@
         <img class="sway__animationX" src="assets/images/banner/inner-banner-shape3.png" alt="shape">
     </div>
     <div class="container">
-        <h2 class="wow fadeInUp" data-wow-delay="00ms" data-wow-duration="1500ms">Case Study 02</h2>
+        <h2 class="wow fadeInUp" data-wow-delay="00ms" data-wow-duration="1500ms">Çözümlerimiz</h2>
         <div class="breadcrumb-list wow fadeInUp" data-wow-delay="200ms" data-wow-duration="1500ms">
-            <a href="index.html">Home</a><span>
-                <i class="fa-regular fa-angles-right mx-2"></i>Case Study
-                02
+            <a href="/Home/Index">Ana Sayfa</a><span>
+                <i class="fa-regular fa-angles-right mx-2"></i>Çözümler
             </span>
         </div>
     </div>
 </section>
 <!-- Page banner area end here -->
-<!-- Case area start here -->
-<section class="case-area pt-120 pb-120">
+<!-- Service area start here -->
+<section class="service-inner-area pt-120 pb-120">
     <div class="container">
         <div class="row g-4">
-            <div class="col-xl-4 col-lg-6 col-md-6">
-                <div class="case-two__item">
-                    <div class="image case-two__image">
-                        <img src="assets/images/case/case-two-image1.jpg" alt="image">
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-two__item">
+                        <div class="image">
+                            <img height="252px" width="374px" src="@item.Image" alt="image">
+                        </div>
+                        <div class="service-two__content">
+                            <div class="icon">
+                                <img src="~/assets/images/icon/service-two-icon1.png" alt="icon">
+                            </div>
+                            <div class="shape">
+                                <img src="~/assets/images/shape/service-two-item-shape.png"
+                                     alt="shape">
+                            </div>
+                            <h4><a href="@Url.Action("SolutionDetails","Solution",new {id=item.Id})" class="primary-hover">@item.Title</a></h4>
+                            @if (item.Description.Length > 350)
+                            {
+                                <p>
+                                    @Html.Raw(item.Description.Substring(0, 350))
+                                </p>
+                                <a class="read-more-btn" href="@Url.Action("SolutionDetails","Solution",new {id=item.Id})">
+                                    Devamını Oku <i class="fa-regular fa-arrow-right-long"></i>
+                                </a>
+                            }
+                        </div>
                     </div>
-                    <div class="case-two__content">
-                        <span>Technology</span>
-                        <h4><a href="case-details.html" class="text-white">Platform Integration</a></h4>
-                    </div>
-                    <a href="case-details.html" class="case-two__btn">
-                        <i class="fa-regular fa-arrow-right"></i>
-                    </a>
                 </div>
-            </div>
-            <div class="col-xl-4 col-lg-6 col-md-6">
-                <div class="case-two__item">
-                    <div class="image case-two__image">
-                        <img src="assets/images/case/case-two-image2.jpg" alt="image">
-                    </div>
-                    <div class="case-two__content">
-                        <span>Technology</span>
-                        <h4><a href="case-details.html" class="text-white">IT Management</a></h4>
-                    </div>
-                    <a href="case-details.html" class="case-two__btn">
-                        <i class="fa-regular fa-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="col-xl-4 col-lg-6 col-md-6">
-                <div class="case-two__item">
-                    <div class="image case-two__image">
-                        <img src="assets/images/case/case-two-image3.jpg" alt="image">
-                    </div>
-                    <div class="case-two__content">
-                        <span>Solution</span>
-                        <h4><a href="case-details.html" class="text-white">Web Development</a></h4>
-                    </div>
-                    <a href="case-details.html" class="case-two__btn">
-                        <i class="fa-regular fa-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="col-xl-4 col-lg-6 col-md-6">
-                <div class="case-two__item">
-                    <div class="image case-two__image">
-                        <img src="assets/images/case/case-two-image4.jpg" alt="image">
-                    </div>
-                    <div class="case-two__content">
-                        <span>Security</span>
-                        <h4><a href="case-details.html" class="text-white">Network Security</a></h4>
-                    </div>
-                    <a href="case-details.html" class="case-two__btn">
-                        <i class="fa-regular fa-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="col-xl-4 col-lg-6 col-md-6">
-                <div class="case-two__item">
-                    <div class="image case-two__image">
-                        <img src="assets/images/case/case-image1.jpg" alt="image">
-                    </div>
-                    <div class="case-two__content">
-                        <span>Solution</span>
-                        <h4><a href="case-details.html" class="text-white">App Development</a></h4>
-                    </div>
-                    <a href="case-details.html" class="case-two__btn">
-                        <i class="fa-regular fa-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="col-xl-4 col-lg-6 col-md-6">
-                <div class="case-two__item">
-                    <div class="image case-two__image">
-                        <img src="assets/images/case/case-image2.jpg" alt="image">
-                    </div>
-                    <div class="case-two__content">
-                        <span>Security</span>
-                        <h4><a href="case-details.html" class="text-white">Database Security</a></h4>
-                    </div>
-                    <a href="case-details.html" class="case-two__btn">
-                        <i class="fa-regular fa-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
+            }
+
         </div>
     </div>
 </section>
-<!-- Case area end here -->
+<!-- Service area end here -->

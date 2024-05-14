@@ -1,4 +1,4 @@
-﻿
+﻿@model Entities.Solution
 @{
     ViewData["Title"] = "SolutionDetails";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -19,9 +19,8 @@
     <div class="container">
         <h2 class="wow fadeInUp" data-wow-delay="00ms" data-wow-duration="1500ms">Case Study Details</h2>
         <div class="breadcrumb-list wow fadeInUp" data-wow-delay="200ms" data-wow-duration="1500ms">
-            <a href="index.html">Home</a><span>
-                <i class="fa-regular fa-angles-right mx-2"></i>Case Study
-                Details
+            <a href="/Home/Index">Ana Sayfa</a><span>
+                <i class="fa-regular fa-angles-right mx-2"></i>Çözümler
             </span>
         </div>
     </div>
@@ -32,28 +31,13 @@
     <div class="container">
         <div class="case-single__item">
             <div class="image">
-                <img src="~/assets/images/case/case-details-image1.jpg" alt="image">
+                <img src="@Model.Image alt="image">
             </div>
-            <h3 class="case-single__title mt-40 mb-30">Mobile App Development Solution</h3>
+            <h3 class="case-single__title mt-40 mb-30">@Model.Title</h3>
             <p>
-                Nulla faucibus malesuada. In placerat feugiat eros ac tempor. Integer euismod massa sapien, et
-                consequat enim laoreet
-                et. Nulla sit amet nisi dapibus, gravida turpis sit amet, accumsan nisl. Fusce vel semper risus.
-                Morbi congue eros
-                sagittis, sodales turpis venenatis, iaculis dui. Proin ac purus sed nibh dapibus neque.
-                scelerisque sed quis ante.
-                Suspendisse potenti. Mauris vitae sagittis diam. Vivamus imperdiet nulla ut nisi fermentum,
-                vitae euismod mi
-                egestas. In
-                quis auctor magna. Maecenas sodales nunc tellus, non iaculis est iaculis placerat. Morbi
-                suscipit,
+                @Model.Description
             </p>
-            <ul class="case-date py-4 bor-top bor-bottom mt-40">
-                <li><span>Completed Date:</span> 23-12-2023</li>
-                <li><span>Category:</span> Technology</li>
-                <li><span>Client:</span> Robert Fox</li>
-                <li><span>Location:</span> fot kde, USA</li>
-            </ul>
+         
             <h3 class="case-single__title mt-40 mb-30">Our Challenge</h3>
             <p>
                 Pellentesque egestas rutrum nibh facilisis ultrices. Phasellus in magna ut orci malesuada
