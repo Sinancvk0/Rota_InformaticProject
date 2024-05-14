@@ -1,4 +1,4 @@
-﻿
+﻿@model Entities.Blog
 @{
     ViewData["Title"] = "BlogDetails";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -19,9 +19,8 @@
     <div class="container">
         <h2 class="wow fadeInUp" data-wow-delay="00ms" data-wow-duration="1500ms">Blog Details</h2>
         <div class="breadcrumb-list wow fadeInUp" data-wow-delay="200ms" data-wow-duration="1500ms">
-            <a href="index.html">Home</a><span>
-                <i class="fa-regular fa-angles-right mx-2"></i>Blog
-                Details
+            <a href="/Home/Index">Ana Sayfa</a><span>
+                <i class="fa-regular fa-angles-right mx-2"></i> Blog Detayı
             </span>
         </div>
     </div>
@@ -34,7 +33,7 @@
             <div class="col-lg-8 order-2 order-lg-1">
                 <div class="blog__item blog-single__left-item shadow-none">
                     <div class="image">
-                        <img src="~/assets/images/blog/blog-single-image1.jpg" alt="image">
+                        <img src="@Model.Image" alt="image">
                     </div>
                     <div class="blog__content p-0">
                         <ul class="pb-3 pt-30 bor-bottom d-flex gap-4 flex-wrap align-items-center">
@@ -48,8 +47,7 @@
                                 </svg>
                                 <a href="blog-single.html">
                                     <span class="primary-hover transition">
-                                        By
-                                        Admin
+                                      Rota
                                     </span>
                                 </a>
                             </li>
@@ -61,7 +59,7 @@
                                     <path d="M13.3333 18.9583H6.66667C3.625 18.9583 1.875 17.2083 1.875 14.1667V7.08333C1.875 4.04166 3.625 2.29166 6.66667 2.29166H13.3333C16.375 2.29166 18.125 4.04166 18.125 7.08333V14.1667C18.125 17.2083 16.375 18.9583 13.3333 18.9583ZM6.66667 3.54166C4.28333 3.54166 3.125 4.7 3.125 7.08333V14.1667C3.125 16.55 4.28333 17.7083 6.66667 17.7083H13.3333C15.7167 17.7083 16.875 16.55 16.875 14.1667V7.08333C16.875 4.7 15.7167 3.54166 13.3333 3.54166H6.66667Z"
                                           fill="#3C72FC" />
                                 </svg>
-                                <span>22, Nov 2023</span>
+                                <span>@Model.CreatedDate</span>
                             </li>
                             <li>
                                 <svg class="me-1" width="20" height="20" viewBox="0 0 20 20" fill="none"
@@ -81,28 +79,13 @@
                                 </a>
                             </li>
                         </ul>
-                        <h3 class="blog-single__title mt-20">Tackling the Changes of Retail Industry</h3>
+                        <h3 class="blog-single__title mt-20">@Model.Title</h3>
                         <p class="mb-20 mt-20">
-                            Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore of magna aliqua. Ut enim ad minim
-                            veniam, made of owl the quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-                            ea dolor commodo consequat. Duis
-                            aute irure and dolor in reprehenderit.
+                       @Model.Description
                         </p>
+                    
                         <p class="mb-20">
-                            The is ipsum dolor sit amet consectetur adipiscing elit. Fusce eleifend
-                            porta arcu In hac habitasse the is platea augue
-                            thelorem turpoi dictumst. In lacus libero faucibus at malesuada sagittis placerat
-                            eros sed istincidunt augue ac ante
-                            rutrum sed the is sodales augue consequat.
-                        </p>
-                        <p class="mb-20">
-                            Nulla facilisi. Vestibulum tristique sem in eros eleifend imperdiet.
-                            Donec quis
-                            convallis neque. In id lacus pulvinar
-                            lacus, eget vulputate lectus. Ut viverra bibendum lorem, at tempus nibh mattis in.
-                            Sed a massa eget lacus consequat
-                            auctor.
+                      @Model.Description2
                         </p>
                         <div class="row">
                             <div class="col-6">
@@ -116,13 +99,7 @@
                                 </div>
                             </div>
                         </div>
-                        <p class="mt-20">
-                            The is ipsum dolor sit amet consectetur adipiscing elit. Fusce eleifend
-                            porta arcu In hac habitasse the is platea augue
-                            thelorem turpoi dictumst. In lacus libero faucibus at malesuada sagittis placerat
-                            eros sed istincidunt augue ac ante
-                            rutrum sed the is sodales augue consequat.
-                        </p>
+                  
                         <div class="hilight-text mt-40 mb-30 sub-bg">
                             <p>
                                 Pellentesque sollicitudin congue dolor non aliquam. Morbi volutpat, nisi vel
@@ -139,13 +116,7 @@
                                       fill="#3C72FC" />
                             </svg>
                         </div>
-                        <p>
-                            Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore of
-                            magna aliqua. Ut enim ad minim
-                            veniam, made of owl the quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-                            ea dolor commodo consequat. Duis
-                            aute irure and dolor in reprehenderit.
-                        </p>
+                   
                         <div class="tags-share mt-40">
                             <div class="tags">
                                 <strong>Tags:</strong>
@@ -163,102 +134,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="blog-single__review mt-60">
-                    <h3>02 Reviews, for Tiles</h3>
-                    <div class="blog-single__comment d-flex gap-4 mt-60 pb-60 bor-bottom">
-                        <div class="image">
-                            <img src="~/assets/images/blog/comment-image1.png" alt="image">
-                        </div>
-                        <div class="content">
-                            <div class="head d-flex flex-wrap gap-2 align-items-center justify-content-between">
-                                <div class="con">
-                                    <h5><a href="#0" class="primary-hover">Ralph Edwards</a></h5>
-                                    <span>March 20, 2023 at 2:37 pm</span>
-                                </div>
-                                <div class="star">
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                </div>
-                            </div>
-                            <p class="mt-30 mb-4">
-                                Neque porro est qui dolorem ipsum quia quaed inventor
-                                veritatis et quasi
-                                architecto var sed efficitur turpis gilla sed
-                                sit amet finibus eros. Lorem Ipsum is simply dummy
-                            </p>
-                            <a href="#0" class="sub-bg primary-color reply">Reply</a>
-                        </div>
-                    </div>
-                    <div class="blog-single__comment d-flex gap-4 mt-60 pb-60 bor-bottom">
-                        <div class="image">
-                            <img src="~/assets/images/blog/comment-image2.png" alt="image">
-                        </div>
-                        <div class="content">
-                            <div class="head d-flex flex-wrap gap-2 align-items-center justify-content-between">
-                                <div class="con">
-                                    <h5><a href="#0" class="primary-hover">Albert Flores</a></h5>
-                                    <span>March 20, 2023 at 2:37 pm</span>
-                                </div>
-                                <div class="star">
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                </div>
-                            </div>
-                            <p class="mt-30 mb-4">
-                                Neque porro est qui dolorem ipsum quia quaed inventor
-                                veritatis et quasi
-                                architecto var sed efficitur turpis gilla sed
-                                sit amet finibus eros. Lorem Ipsum is simply dummy
-                            </p>
-                            <a href="#0" class="sub-bg primary-color reply">Reply</a>
-                        </div>
-                    </div>
-                    <div class="contact__form mt-60">
-                        <h3 class="fw-700 mb-40">Leave a Comment</h3>
-                        <form action="#">
-                            <div class="row">
-                                <div class="col-6">
-                                    <label for="name">Your Name*</label>
-                                    <input id="name" class="bg-transparent bor" type="text"
-                                           placeholder="Your Name">
-                                </div>
-                                <div class="col-6">
-                                    <label for="email">Your Email*</label>
-                                    <input class="bg-transparent bor" id="email" type="email"
-                                           placeholder="Your Email">
-                                </div>
-                            </div>
-                            <div class="text-area">
-                                <label for="massage">Write Message*</label>
-                                <textarea class="bg-transparent bor" id="massage"
-                                          placeholder="Write Message"></textarea>
-                            </div>
-                            <div class="btn-two">
-                                <span class="btn-circle">
-                                </span>
-                                <a href="#" class="btn-one">
-                                    Post Comment <i class="fa-regular fa-arrow-right-long"></i>
-                                </a>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+             
             </div>
             <div class="col-lg-4 order-1 order-lg-2">
                 <div class="blog-single__right-item">
-                    <div class="item sub-bg mb-30">
-                        <h5 class="title">Search</h5>
-                        <div class="serach-bar">
-                            <input type="text" placeholder="Search here">
-                            <button><i class="fa-regular fa-magnifying-glass"></i></button>
-                        </div>
-                    </div>
+           
                     <div class="item sub-bg mb-30">
                         <h5 class="title">Category</h5>
                         <ul class="category">
