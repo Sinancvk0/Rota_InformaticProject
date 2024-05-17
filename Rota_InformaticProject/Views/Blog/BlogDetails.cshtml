@@ -17,7 +17,7 @@
         <img class="sway__animationX" src="~/assets/images/banner/inner-banner-shape3.png" alt="shape">
     </div>
     <div class="container">
-        <h2 class="wow fadeInUp" data-wow-delay="00ms" data-wow-duration="1500ms">Blog Details</h2>
+        <h2 class="wow fadeInUp" data-wow-delay="00ms" data-wow-duration="1500ms">Blog Detay Sayfası</h2>
         <div class="breadcrumb-list wow fadeInUp" data-wow-delay="200ms" data-wow-duration="1500ms">
             <a href="/Home/Index">Ana Sayfa</a><span>
                 <i class="fa-regular fa-angles-right mx-2"></i> Blog Detayı
@@ -33,7 +33,7 @@
             <div class="col-lg-8 order-2 order-lg-1">
                 <div class="blog__item blog-single__left-item shadow-none">
                     <div class="image">
-                        <img src="@Model.Image" alt="image">
+                        <img style="height:500px;" src="@Model.Image" alt="image">
                     </div>
                     <div class="blog__content p-0">
                         <ul class="pb-3 pt-30 bor-bottom d-flex gap-4 flex-wrap align-items-center">
@@ -59,7 +59,7 @@
                                     <path d="M13.3333 18.9583H6.66667C3.625 18.9583 1.875 17.2083 1.875 14.1667V7.08333C1.875 4.04166 3.625 2.29166 6.66667 2.29166H13.3333C16.375 2.29166 18.125 4.04166 18.125 7.08333V14.1667C18.125 17.2083 16.375 18.9583 13.3333 18.9583ZM6.66667 3.54166C4.28333 3.54166 3.125 4.7 3.125 7.08333V14.1667C3.125 16.55 4.28333 17.7083 6.66667 17.7083H13.3333C15.7167 17.7083 16.875 16.55 16.875 14.1667V7.08333C16.875 4.7 15.7167 3.54166 13.3333 3.54166H6.66667Z"
                                           fill="#3C72FC" />
                                 </svg>
-                                <span>@Model.CreatedDate</span>
+                                <span>@Model.CreatedDate.ToString("dd/mm/yyyy")</span>
                             </li>
                             <li>
                                 <svg class="me-1" width="20" height="20" viewBox="0 0 20 20" fill="none"
@@ -75,7 +75,7 @@
                                     </defs>
                                 </svg>
                                 <a href="blog-single.html">
-                                    <span class="primary-hover transition">Technology</span>
+                                    <span class="primary-hover transition">@Model.Tags</span>
                                 </a>
                             </li>
                         </ul>
@@ -100,29 +100,12 @@
                             </div>
                         </div>
                   
-                        <div class="hilight-text mt-40 mb-30 sub-bg">
-                            <p>
-                                Pellentesque sollicitudin congue dolor non aliquam. Morbi volutpat, nisi vel
-                                ultricies urnacondimentum, sapien neque
-                                lobortis tortor, quis efficitur mi ipsum eu metus. Praesent eleifend orci sit
-                                amet
-                                est vehicula.
-                            </p>
-                            <svg width="36" height="26" viewBox="0 0 36 26" fill="none"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <path d="M0 15.3698H7.71428L2.57139 25.5546H10.2857L15.4286 15.3698V0.0924683H0V15.3698Z"
-                                      fill="#3C72FC" />
-                                <path d="M20.5703 0.0924683V15.3698H28.2846L23.1417 25.5546H30.856L35.9989 15.3698V0.0924683H20.5703Z"
-                                      fill="#3C72FC" />
-                            </svg>
-                        </div>
-                   
+                
                         <div class="tags-share mt-40">
                             <div class="tags">
                                 <strong>Tags:</strong>
-                                <a href="#0">business</a>
-                                <a href="#0">marketing</a>
-                                <a href="#0">services</a>
+                                <a href="#0">@Model.Tags</a>
+                             
                             </div>
                             <div class="share">
                                 <strong>Share:</strong>
@@ -139,16 +122,7 @@
             <div class="col-lg-4 order-1 order-lg-2">
                 <div class="blog-single__right-item">
            
-                    <div class="item sub-bg mb-30">
-                        <h5 class="title">Category</h5>
-                        <ul class="category">
-                            <li><a href="#0">Database Security</a> <span>(02)</span></li>
-                            <li><a href="#0">IT Consultancy</a> <span>(05)</span></li>
-                            <li><a href="#0">App Development</a> <span>(07)</span></li>
-                            <li><a href="#0">UI/UX Design</a> <span>(18)</span></li>
-                            <li><a href="#0">Cyber Security</a> <span>(08)</span></li>
-                        </ul>
-                    </div>
+                  
                     <div class="item sub-bg mb-30">
                         <h5 class="title">Resent Post</h5>
                         <ul class="single-post">
