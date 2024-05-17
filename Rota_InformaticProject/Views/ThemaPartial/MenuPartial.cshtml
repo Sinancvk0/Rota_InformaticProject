@@ -2,23 +2,24 @@
 <header class="header-area">
     <div class="container header__container">
         <div class="header__main">
-            <a href="index.html" class="logo">
+            <a href="/Home/Index" class="logo">
                 <img src="~/assets/images/logo/RotaLogo.jpg" alt="logo">
             </a>
+
             <div class="main-menu">
                 <nav>
                     <ul>
                         <li class="has-megamenu">
-                            <a href="#0">Ana Sayfa</a>
+                            <a asp-controller="Home" asp-action="Index">Ana Sayfa</a>
                        
                         </li>
-                        <li><a href="about.html">Kurumsal</a></li>
-                        <li><a href="about.html">Hizmetler</a></li>
-                        <li><a href="about.html">Çözümler</a></li>
-                        <li><a href="about.html">Blog</a></li>
-                        <li><a href="about.html">Referanslar</a></li>
+                        <li><a  asp-controller="Company" asp-action="Index" >Kurumsal</a></li>
+                        <li><a asp-controller="Service"   asp-action="Index">Hizmetler</a></li>
+                        <li><a asp-controller="Solution"  asp-action="Index">Çözümler</a></li>
+                        <li><a asp-controller="Blog"      asp-action="Index">Blog</a></li>
+                        <li><a asp-controller="Referance" asp-action="Index">Referanslar</a></li>
                      
-                        <li><a href="contact.html">İletişim</a></li>
+                        <li><a asp-action="Index" asp-controller="Contact">İletişim</a></li>
                    
                     </ul>
                 </nav>
