@@ -44,10 +44,10 @@
                                      alt="shape">
                             </div>
                             <h4><a href="@Url.Action("ServiceDetails","Service",new {id=item.Id})" class="primary-hover">@item.Title</a></h4>
-                        @if (item.Description.Length>350)
+                        @if (item.Description.Length>150)
                             {
                                 <p>
-                                    @Html.Raw(item.Description.Substring(0,350))
+                                    @Html.Raw(item.Description.Substring(0, 150))
                                 </p>
                                 <a class="read-more-btn" href="@Url.Action("ServiceDetails","Service",new {id=item.Id})">
                                     Devamını Oku <i class="fa-regular fa-arrow-right-long"></i>
