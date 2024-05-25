@@ -116,23 +116,23 @@
                        
                     </div>
                     <div class="contact__form">
-                        <form id="contactForm" method="post" action="/Contact/Index" enctype="multipart/form-data">
+                        <form id="contact-form" method="post" action="/Contact/Index" >
                             <div class="row">
                                 <div class="col-6">
                                     <label for="name">Ad Soyad</label>
-                                    <input id="name" name="FullName" class="bg-transparent bor" type="text" placeholder="Ad Soyad">
+                                    <input id="name" asp-for="FullName" class="bg-transparent bor" type="text" placeholder="Name" required>
                                 </div>
                                 <div class="col-6">
                                     <label for="email">Mail Adresi</label>
-                                    <input class="bg-transparent bor" id="email" name="Email" type="email" placeholder="Email">
+                                    <input class="bg-transparent bor" id="email" asp-for="Email" type="email" placeholder="Email" required>
                                 </div>
                                 <div class="col-6">
                                     <label for="phone">Telefon Numarası*</label>
-                                    <input class="bg-transparent bor" id="phone" name="Phone" type="tel" placeholder="Telefon No">
+                                    <input class="bg-transparent bor" id="phone" asp-for="Phone" type="tel" placeholder="Phone Number" required>
                                 </div>
                                 <div class="col-6">
                                     <label for="subject">Konu</label>
-                                    <select id="subject" name="Subject" class="bg-transparent bor">
+                                    <select required id="subject" asp-for="Subject" class="bg-transparent bor">
                                         <option value="" disabled selected>Konu Seçiniz</option>
                                         <option value="Teklif Alma">Teklif Alma</option>
                                         <option value="Şikayet">Şikayet</option>
@@ -142,7 +142,7 @@
                             </div>
                             <div class="text-area">
                                 <label for="message">Mesajınız</label>
-                                <textarea name="Body" rows="2" class="bg-transparent bor" id="message" placeholder="Mesaj"></textarea>
+                                <textarea asp-for="Body" rows="2" class="bg-transparent bor" id="message" placeholder="Message..." required></textarea>
                             </div>
                             <div class="btn-two">
                                 <span class="btn-circle"></span>
@@ -165,6 +165,7 @@
 
 </div>
 
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <!-- SweetAlert2 CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
@@ -172,12 +173,10 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        document.querySelector('form').addEventListener('submit', function (e) {
+        document.querySelector('#contact-form').addEventListener('submit', function (e) {
             e.preventDefault();
 
-
             const formData = new FormData(this);
-
 
             fetch('/Contact/Index', {
                 method: 'POST',
@@ -185,18 +184,16 @@
             })
                 .then(response => {
                     if (response.ok) {
-
                         Swal.fire({
                             icon: 'success',
-                            title: 'Success!',
-                            text: 'Your message has been successfully sent. A response will be provided as soon as possible',
+                            title: 'Teşekkürler!',
+                            text: 'Mesajınız iletilmiştir en kısa süre içerisinde tarafınıza bilgi verilecektir.',
                             showConfirmButton: false,
                             timer: 6000
                         });
 
                         this.reset();
                     } else {
-
                         Swal.fire({
                             icon: 'error',
                             title: 'Error!',
@@ -208,9 +205,15 @@
                 })
                 .catch(error => {
                     console.error('Error:', error);
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error!',
+                        text: 'Bir hata oluştu, lütfen tekrar deneyin.',
+                        showConfirmButton: false,
+                        timer: 2000
+                    });
                 });
         });
     });
 </script>
-
 

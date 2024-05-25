@@ -12,7 +12,7 @@ namespace Rota_InformaticProject.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Message(ContactViewModel contact)
+        public IActionResult Index(ContactViewModel contact)
         {
             if (ModelState.IsValid)
             {
@@ -38,7 +38,7 @@ namespace Rota_InformaticProject.Controllers
 
                 }
 
-                return RedirectToAction("");
+                return Ok();
             }
 
             return View();
