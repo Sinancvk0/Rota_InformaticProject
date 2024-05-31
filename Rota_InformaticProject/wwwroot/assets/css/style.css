@@ -2742,7 +2742,7 @@ input.main-search-input::placeholder {
 .banner-area, .banner-two-area {
   overflow: hidden;
   position: relative;
-  margin-top:-28px;
+  margin-top:-7px;
 }
 .banner__dot-wrp {
   position: absolute;
