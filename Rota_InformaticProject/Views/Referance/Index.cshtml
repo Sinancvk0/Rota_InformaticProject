@@ -1,4 +1,4 @@
-﻿
+﻿@model List< Entities.Reference>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -28,61 +28,25 @@
 <section class="blog-area pt-120 pb-120">
     <div class="container">
         <div class="row g-4">
-            <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="00ms"
-                 data-wow-duration="1500ms">
-                <div class="blog__item">
-                    <a href="blog-details.html" class="blog__image d-block image">
-                        <img src="~/assets/images/about/about2.jpg" alt="image">
-                       
-                    </a>
-              
+            @foreach (var item in Model)
+            {
+                <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="00ms"
+                     data-wow-duration="1500ms">
+                    <div class="blog__item">
+                        <a href="blog-details.html" class="blog__image d-block image">
+                            <img src="@item.Image" alt="@item.Title">
+
+                        </a>
+
+                    </div>
                 </div>
-            </div>
-            <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="00ms"
-                 data-wow-duration="1500ms">
-                <div class="blog__item">
-                    <a href="blog-details.html" class="blog__image d-block image">
-                        <img src="~/assets/images/about/about2.jpg" alt="image">
 
-                    </a>
+            }
 
-                </div>
-            </div>
-            <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="00ms"
-                 data-wow-duration="1500ms">
-                <div class="blog__item">
-                    <a href="blog-details.html" class="blog__image d-block image">
-                        <img src="~/assets/images/about/about2.jpg" alt="image">
 
-                    </a>
 
-                </div>
-            </div>
-            <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="00ms"
-                 data-wow-duration="1500ms">
-                <div class="blog__item">
-                    <a href="blog-details.html" class="blog__image d-block image">
-                        <img src="~/assets/images/about/about2.jpg" alt="image">
-
-                    </a>
-
-                </div>
-            </div>
-            <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="00ms"
-                 data-wow-duration="1500ms">
-                <div class="blog__item">
-                    <a href="blog-details.html" class="blog__image d-block image">
-                        <img src="~/assets/images/about/about2.jpg" alt="image">
-
-                    </a>
-
-                </div>
-            </div>
-          
-         
         </div>
 
     </div>
 </section>
 <!-- Blog area end here -->
-

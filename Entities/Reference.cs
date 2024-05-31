@@ -9,5 +9,6 @@ namespace Entities
     public class Reference:BaseModel
     {
         public required string Image {  get; set; }
+        
     }
 }
